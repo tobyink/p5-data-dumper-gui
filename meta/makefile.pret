@@ -1,0 +1,8 @@
+# This file provides instructions for packaging.
+
+`Data-Dumper-GUI`
+	perl_version_from m`Data::Dumper::GUI`;
+	version_from      m`Data::Dumper::GUI`;
+	readme_from       m`Data::Dumper::GUI` ;
+	.
+
