@@ -4,3 +4,9 @@
 	issued  2013-07-09;
 	label   "Initial release".
 
+`Data-Dumper-GUI 0.002 cpan:TOBYINK`
+	issued  2013-07-09;
+	changeset [
+		item "Reply::Plugin::ddGUI"^^Addition;
+	].
+

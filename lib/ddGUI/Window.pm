@@ -6,7 +6,7 @@ use warnings;
 
 BEGIN {
 	$ddGUI::Window::AUTHORITY = 'cpan:TOBYINK';
-	$ddGUI::Window::VERSION   = '0.001';
+	$ddGUI::Window::VERSION   = '0.002';
 }
 
 use Moo;
