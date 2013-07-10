@@ -194,6 +194,10 @@ sub _item_to_arrayref {
 		my $i;
 		@internals = map { $self->_item_to_arrayref("{$_}", $item->{$_}, "$path\->{$_}") } sort keys %$item;
 	}
+	if (reftype($item) eq 'SCALAR') {
+		my $i;
+		@internals = $self->_item_to_arrayref("\${...}", $$item, "\${$path}");
+	}
 	
 	return [[ $label, '['.ref($item).']', $item, $path ], \@internals, !blessed($item), undef ];
 }
