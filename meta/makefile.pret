@@ -4,6 +4,7 @@
 	perl_version_from m`Data::Dumper::GUI`;
 	version_from      m`Data::Dumper::GUI`;
 	readme_from       m`Data::Dumper::GUI` ;
+	requires          p`Devel::Size 0.79`;
 	requires          p`Exporter::TypeTiny 0.012`;
 	requires          p`Moo 1.002000`;
 	requires          p`Prima 1.36`;
