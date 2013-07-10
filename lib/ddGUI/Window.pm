@@ -178,6 +178,14 @@ sub _prepared_items {
 	];
 }
 
+sub __maybequote {
+	map {
+		(/^_*[A-Z][A-Z0-9_]*$/i || /^-_*[A-Z][A-Z0-9_]+$/i)
+			? $_
+			: perlstring($_)
+	} @_
+}
+
 sub _item_to_arrayref {
 	my $self = shift;
 	my ($label, $item, $path) = @_;
@@ -204,7 +212,7 @@ sub _item_to_arrayref {
 		@internals = map { ++$i; $self->_item_to_arrayref("[$i]", $_, "$path\->[$i]") } @$item;
 	}
 	if (reftype($item) eq 'HASH') {
-		@internals = map { $self->_item_to_arrayref("{$_}", $item->{$_}, "$path\->{$_}") } sort keys %$item;
+		@internals = map { $self->_item_to_arrayref("{${\__maybequote($_)}}", $item->{$_}, "$path\->{${\__maybequote($_)}}") } sort keys %$item;
 	}
 	if (reftype($item) eq 'SCALAR') {
 		@internals = $self->_item_to_arrayref("\${...}", $$item, "\${$path}");

@@ -1,4 +1,3 @@
-DetailedOutline: Quote hash keys when necessary
 TextView: Better support for Regexp refs
 TextView: Better support for Code refs
 Window: Window should be resizable
