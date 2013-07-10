@@ -6,7 +6,7 @@ use warnings;
 
 BEGIN {
 	$Reply::Plugin::ddGUI::AUTHORITY = 'cpan:TOBYINK';
-	$Reply::Plugin::ddGUI::VERSION   = '0.002';
+	$Reply::Plugin::ddGUI::VERSION   = '0.003';
 }
 
 use parent qw( Reply::Plugin );

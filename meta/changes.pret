@@ -10,3 +10,14 @@
 		item "Reply::Plugin::ddGUI"^^Addition;
 	].
 
+`Data-Dumper-GUI 0.003 cpan:TOBYINK`
+	issued  2013-07-10;
+	changeset [
+		item "Dereference SCALAR refs in outline."^^Change;
+		item "Array indices count from $[, not 1."^^Bugfix;
+		item "Include size of references using Devel::Size."^^Addition;
+		item "Show length of arrays."^^Addition;
+		item "Show key count for hashes, and bucket count."^^Addition;
+		item "Quote hash keys when necessary."^^Bugfix;
+	].
+
