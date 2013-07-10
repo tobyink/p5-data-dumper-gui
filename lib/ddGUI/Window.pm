@@ -159,9 +159,9 @@ sub _build_vars {
 sub _prepared_items {
 	my $self = shift;
 	$self->_seen({});
-	my $i;
+	my $i = -1;
 	return [
-		map { ++$i; $self->_item_to_arrayref($self->vars->[$i-1], $_, $self->vars->[$i-1]) } @{ $self->items }
+		map { ++$i; $self->_item_to_arrayref($self->vars->[$i], $_, $self->vars->[$i]) } @{ $self->items }
 	];
 }
 
@@ -187,15 +187,13 @@ sub _item_to_arrayref {
 	my @internals;
 	
 	if (reftype($item) eq 'ARRAY') {
-		my $i;
+		my $i = $[-1;
 		@internals = map { ++$i; $self->_item_to_arrayref("[$i]", $_, "$path\->[$i]") } @$item;
 	}
 	if (reftype($item) eq 'HASH') {
-		my $i;
 		@internals = map { $self->_item_to_arrayref("{$_}", $item->{$_}, "$path\->{$_}") } sort keys %$item;
 	}
 	if (reftype($item) eq 'SCALAR') {
-		my $i;
 		@internals = $self->_item_to_arrayref("\${...}", $$item, "\${$path}");
 	}
 	
