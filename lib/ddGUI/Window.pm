@@ -200,16 +200,16 @@ sub _item_to_arrayref {
 	my ($label, $item, $path) = @_;
 	
 	if (!defined($item)) {
-		return [[ $label, "(undef)", $item, $path ], [], 1, undef];
+		return [[ $label, "(undef)", $item, $path ]];
 	}
 	
 	if (!ref($item)) {
-		return [[ $label, perlstring($item), $item, $path ], [], 1, undef];
+		return [[ $label, perlstring($item), $item, $path ]];
 	}
 	
 	if (exists $self->_seen->{ refaddr($item) }) {
 		my $is = $self->_seen->{ refaddr($item) };
-		return [[ $label, "= $is", $item, $path ], [], 1, undef];
+		return [[ $label, "= $is", $item, $path ]];
 	}
 	
 	$self->_seen->{ refaddr($item) } = $path;
