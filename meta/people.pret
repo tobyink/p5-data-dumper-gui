@@ -6,3 +6,7 @@ cpan:TOBYINK
 	:name  "Toby Inkster";
 	:mbox  <mailto:tobyink@cpan.org>.
 
+cpan:KARASIK
+	:name      "Dmitry Karasik";
+	:homepage  <http://www.karasik.eu.org/>;
+	:page      <https://github.com/dk>.

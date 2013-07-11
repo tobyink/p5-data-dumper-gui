@@ -21,3 +21,21 @@
 		item "Quote hash keys when necessary."^^Bugfix;
 	].
 
+`Data-Dumper-GUI 0.004 cpan:TOBYINK`
+	issued  2013-07-11;
+	changeset [
+		item [
+			a dcs:Change;
+			label "Make window resizable, and allow the split between the two panels to be dragged across.";
+			dcs:blame cpan:KARASIK;
+			seealso <https://github.com/tobyink/p5-data-dumper-gui/pull/1>;
+		];
+		item [
+			a dcs:Change;
+			label "Remove useless [-] icons from leaf nodes in outline.";
+			dcs:blame cpan:KARASIK;
+			comment "I dunno; I don't get any icons anyway.";
+			seealso <https://github.com/tobyink/p5-data-dumper-gui/pull/1>;
+		];
+	].
+
