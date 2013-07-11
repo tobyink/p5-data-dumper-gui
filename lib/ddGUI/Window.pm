@@ -40,8 +40,8 @@ sub _build_frameset {
 	
 	$self->window->insert(
 		'Prima::FrameSet',
-		pack		 => { expand => 1, fill => 'both'},
-		frameSizes	 => [qw(33% *)],
+		pack         => { expand => 1, fill => 'both'},
+		frameSizes   => [qw(33% *)],
 		opaqueResize => 1,
 	);
 }
@@ -49,10 +49,11 @@ sub _build_frameset {
 sub _build_outline {
 	my $self = shift;
 	
-	return $self->frameset->insert_to_frame(0,
+	return $self->frameset->insert_to_frame(
+		0,
 		'Prima::DetailedOutline',
 		columns   => 2,
-		pack	  => { expand => 1, fill => 'both'},
+		pack      => { expand => 1, fill => 'both'},
 		headers   => $self->headers,
 		items     => $self->_prepared_items,
 		onSelectItem => sub {
@@ -68,9 +69,10 @@ sub _build_outline {
 sub _build_textview {
 	my $self = shift;
 	
-	$self->frameset->insert_to_frame(1,
+	$self->frameset->insert_to_frame(
+		1,
 		'Prima::PodView',
-		pack	  => { expand => 1, fill => 'both'},
+		pack => { expand => 1, fill => 'both'},
 	);
 }
 
