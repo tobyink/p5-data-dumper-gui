@@ -13,13 +13,13 @@ use Moo;
 
 use B 'perlstring';
 use Devel::Size qw( );
-use Prima qw( Application DetailedOutline PodView );
+use Prima qw( Application FrameSet DetailedOutline PodView );
 use Scalar::Util qw( blessed reftype refaddr );
 use Types::Standard -types;
 
 has title   => (is => "ro",   isa => Str,              required => 1);
 has items   => (is => "ro",   isa => ArrayRef,         required => 1);
-has $_      => (is => "lazy", isa => Object,           builder => 1) for qw( window outline textview );
+has $_      => (is => "lazy", isa => Object,           builder => 1) for qw( window frameset outline textview );
 has size    => (is => "ro",   isa => Tuple[Int, Int],  default => sub { [640, 480] });
 has headers => (is => "ro",   isa => Tuple[Str, Str],  default => sub { ['Path', 'Value'] });
 has vars    => (is => "lazy", isa => ArrayRef[Str],    builder => 1);
@@ -35,14 +35,24 @@ sub _build_window {
 	);
 }
 
+sub _build_frameset {
+	my $self = shift;
+	
+	$self->window->insert(
+		'Prima::FrameSet',
+		pack		 => { expand => 1, fill => 'both'},
+		frameSizes	 => [qw(33% *)],
+		opaqueResize => 1,
+	);
+}
+
 sub _build_outline {
 	my $self = shift;
 	
-	return $self->window->insert(
+	return $self->frameset->insert_to_frame(0,
 		'Prima::DetailedOutline',
 		columns   => 2,
-		origin    => [0, 0],
-		size      => [ $self->size->[0] / 3, $self->size->[1] ],
+		pack	  => { expand => 1, fill => 'both'},
 		headers   => $self->headers,
 		items     => $self->_prepared_items,
 		onSelectItem => sub {
@@ -58,10 +68,9 @@ sub _build_outline {
 sub _build_textview {
 	my $self = shift;
 	
-	$self->window->insert(
+	$self->frameset->insert_to_frame(1,
 		'Prima::PodView',
-		origin    => [ $self->size->[0] / 3, 0 ],
-		size      => [ $self->size->[0] * 2 / 3, $self->size->[1] ],
+		pack	  => { expand => 1, fill => 'both'},
 	);
 }
 
@@ -191,16 +200,16 @@ sub _item_to_arrayref {
 	my ($label, $item, $path) = @_;
 	
 	if (!defined($item)) {
-		return [[ $label, "(undef)", $item, $path ], [], 1, undef];
+		return [[ $label, "(undef)", $item, $path ]];
 	}
 	
 	if (!ref($item)) {
-		return [[ $label, perlstring($item), $item, $path ], [], 1, undef];
+		return [[ $label, perlstring($item), $item, $path ]];
 	}
 	
 	if (exists $self->_seen->{ refaddr($item) }) {
 		my $is = $self->_seen->{ refaddr($item) };
-		return [[ $label, "= $is", $item, $path ], [], 1, undef];
+		return [[ $label, "= $is", $item, $path ]];
 	}
 	
 	$self->_seen->{ refaddr($item) } = $path;
