@@ -91,7 +91,7 @@ sub _display_node {
 	
 	my $tv = $self->textview;
 	$tv->open_read;
-	$tv->{readState}{createIndex} = [];
+	$tv->{readState}{createIndex} = 0;
 	$tv->read("=head1 VARIABLE\n\n$path\n\n");
 	if (!defined($item)) {
 		$tv->read("=head1 TYPE\n\nUndefined.\n\n");
