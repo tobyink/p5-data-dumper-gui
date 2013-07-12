@@ -39,3 +39,14 @@
 		];
 	].
 
+`Data-Dumper-GUI 0.005 cpan:TOBYINK`
+	issued  2013-07-12;
+	changeset [
+		item [
+			a dcs:Change;
+			label "Switch off index section in PodView.";
+			dcs:blame cpan:KARASIK;
+			seealso <https://github.com/dk/Prima/commit/ba12aa0ba61d8f8b11f2c0834447cfed52889309>;
+		];
+	].
+
