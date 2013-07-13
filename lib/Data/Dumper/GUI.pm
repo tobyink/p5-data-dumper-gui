@@ -62,7 +62,8 @@ Data::Dumper::GUI - just what Data::Dumper needed... a GUI
 
 Data::Dumper::GUI is a little like L<Data::Dumper>, but as well as printing
 out a dump of the variables it is passed, it also shows them in a pretty
-GUI with a tree view, allowing you to expand and collapse nodes, etc.
+GUI (graphical user interface) with a tree view, allowing you to expand and
+collapse nodes, etc.
 
 It has special secret sauce support for L<Moose> objects. (And for L<Moo>
 objects too, if you make sure Moose is loaded before dumping them.)
