@@ -1,13 +1,13 @@
 # This file provides instructions for packaging.
 
 `Data-Dumper-GUI`
-	perl_version_from m`Data::Dumper::GUI`;
-	version_from      m`Data::Dumper::GUI`;
-	readme_from       m`Data::Dumper::GUI` ;
-	requires          p`Devel::Size 0.79`;
-	requires          p`Exporter::Tiny 0.026`;
-	requires          p`Moo 1.002000`;
-	requires          p`Prima 1.36`;
-	requires          p`Types::Standard 0.012`;
+	deps:runtime-requirement    [ deps:on "perl 5.010001"^^deps:CpanId ];
+	deps:runtime-requirement    [ deps:on "Devel::Size 0.79"^^deps:CpanId ];
+	deps:runtime-requirement    [ deps:on "Exporter::Tiny 0.026"^^deps:CpanId ];
+	deps:runtime-requirement    [ deps:on "Moo 1.002000"^^deps:CpanId ];
+	deps:runtime-requirement    [ deps:on "Prima 1.36"^^deps:CpanId ];
+	deps:runtime-requirement    [ deps:on "Types::Standard 0.012"^^deps:CpanId ];
+	deps:test-requirement       [ deps:on "Test::More 0.96"^^deps:CpanId ];
+	deps:develop-recommendation [ deps:on "Dist::Inkt"^^deps:CpanId ];
 	.
 
