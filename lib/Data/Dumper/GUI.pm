@@ -71,7 +71,7 @@ objects too, if you make sure Moose is loaded before dumping them.)
 =begin HTML
 
 <p><img src="http://buzzword.org.uk/2013/ddGUI-eg1.png"
-title="Dumper({ foo => 'name', list => [1..5] })"
+title="Dumper({ name => 'Foo Bar', list => [1..5] })"
 width="644" height="417" alt="" /></p>
 
 =end HTML
