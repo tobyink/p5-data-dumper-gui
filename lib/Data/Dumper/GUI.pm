@@ -9,7 +9,7 @@ BEGIN {
 	$Data::Dumper::GUI::VERSION   = '0.005';
 }
 
-use parent qw( Exporter::TypeTiny Data::Dumper );
+use parent qw( Exporter::Tiny Data::Dumper );
 our @EXPORT = qw(Dumper);
 
 sub Dump {
