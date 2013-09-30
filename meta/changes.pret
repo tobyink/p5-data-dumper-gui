@@ -50,3 +50,11 @@
 		];
 	].
 
+`Data-Dumper-GUI 0.006 cpan:TOBYINK`
+	issued  2013-09-30;
+	changeset [
+		item "Include image in documentation."^^Documentation;
+		item "Use Dist::Inkt."^^Packaging;
+		item "Use Exporter::Tiny instead of Exporter::TypeTiny."^^Update;
+	].
+

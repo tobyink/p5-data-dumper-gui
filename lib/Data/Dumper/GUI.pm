@@ -6,7 +6,7 @@ use warnings;
 
 BEGIN {
 	$Data::Dumper::GUI::AUTHORITY = 'cpan:TOBYINK';
-	$Data::Dumper::GUI::VERSION   = '0.005';
+	$Data::Dumper::GUI::VERSION   = '0.006';
 }
 
 use parent qw( Exporter::Tiny Data::Dumper );
