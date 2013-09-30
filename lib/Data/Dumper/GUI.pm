@@ -68,6 +68,14 @@ collapse nodes, etc.
 It has special secret sauce support for L<Moose> objects. (And for L<Moo>
 objects too, if you make sure Moose is loaded before dumping them.)
 
+=begin HTML
+
+<p><img src="http://buzzword.org.uk/2013/ddGUI-eg1.png"
+title="Dumper({ foo => 'name', list => [1..5] })"
+width="644" height="417" alt="" /></p>
+
+=end HTML
+
 =head1 BUGS
 
 Please report any bugs to
